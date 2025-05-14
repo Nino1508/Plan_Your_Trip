@@ -1,0 +1,14 @@
+{
+  "name": "Plan Your Trip",
+  "workspaceFolder": "/workspaces/Plan_Your_Trip",
+  "postCreateCommand": "npm install",
+  "settings": {},
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "esbenp.prettier-vscode",
+        "dbaeumer.vscode-eslint"
+      ]
+    }
+  }
+}
