@@ -1,10 +1,13 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './Menu.jsx'
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import "./index.css";
+import App from "./Menu.jsx";
 
-createRoot(document.getElementById('root')).render(
+import MultiDropdown from "./components/MultiDropdown/MultiDropdown.jsx";
+
+createRoot(document.getElementById("root")).render(
   <StrictMode>
     <App />
-  </StrictMode>,
-)
+    <MultiDropdown />
+  </StrictMode>
+);
