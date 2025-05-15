@@ -4,27 +4,30 @@ import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { motion } from "framer-motion";
 import "./DropdownList.css";
 
-function DropdownList({ categoria = "Alojamiento" }) {
-  const [isOpen, setIsOpen] = useState(false);
+function DropdownList({ categoria = "Alojamiento", isOpen, toggleCategory }) {
+  
   const [tasks, setTasks] = useState([]);
   const [taskInput, setTaskInput] = useState("");
-  const toggleDropdown = () => {
-    setIsOpen(!isOpen);
-  };
+
+  
   const handleAddTask = () => {
-    if (taskInput.trim() === "") return;
+    if (taskInput.trim() === "") return; 
 
     const newTask = {
-      id: Date.now(),
+      id: Date.now(), 
       text: taskInput,
-      done: false,
+      done: false, 
     };
     setTasks([newTask, ...tasks]);
-    setTaskInput("");
+    setTaskInput(""); 
   };
+
+ 
   const handleDeleteTask = (id) => {
     setTasks(tasks.filter((task) => task.id !== id));
   };
+
+  
   const handleToggleDone = (id) => {
     setTasks(
       tasks.map((task) =>
@@ -32,15 +35,19 @@ function DropdownList({ categoria = "Alojamiento" }) {
       )
     );
   };
+
   return (
     <div className="mydropdown-container">
-      <div className="mydropdown-header" onClick={toggleDropdown}>
+      
+      <div className="mydropdown-header" onClick={() => toggleCategory(categoria)}>
         <p className="mydropdown-category">{categoria}</p>
         <button className="mydropdown-arrow">{isOpen ? "▲" : "▼"}</button>
       </div>
 
+      {/* CONTENIDO CUANDO LO ABRES */}
       {isOpen && (
         <div className="mydropdown-content">
+          
           {tasks.map((task) => (
             <div key={task.id} className="mydropdown-task-item">
               <input
@@ -49,6 +56,7 @@ function DropdownList({ categoria = "Alojamiento" }) {
                 onChange={() => handleToggleDone(task.id)}
                 className="mydropdown-radio"
               />
+              
               <motion.p
                 initial={{ scale: 1 }}
                 animate={task.done ? { scale: 1.05 } : { scale: 1 }}
@@ -62,6 +70,7 @@ function DropdownList({ categoria = "Alojamiento" }) {
                 {task.text}
               </motion.p>
 
+              {/* BORRAR TAREA */}
               <button
                 onClick={() => handleDeleteTask(task.id)}
                 className="mydropdown-delete-button"
@@ -72,6 +81,7 @@ function DropdownList({ categoria = "Alojamiento" }) {
             </div>
           ))}
 
+          {/* AÑADIR TAREA */}
           <div className="mydropdown-add-task">
             <input
               type="text"
@@ -86,4 +96,5 @@ function DropdownList({ categoria = "Alojamiento" }) {
     </div>
   );
 }
+
 export default DropdownList;
