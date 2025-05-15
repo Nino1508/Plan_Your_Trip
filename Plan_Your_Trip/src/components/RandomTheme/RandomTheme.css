@@ -1,0 +1,43 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+.random-theme-container {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+/* La imagen en fondo cubre toda la pantalla sin deformarse */
+.random-theme-container div {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+/* Si usas la técnica de fondo en línea, las propiedades en línea en el componente, no necesitas estas reglas para la imagen */
+.bottom-button {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 2;
+}
+.theme-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: rgba(51, 51, 51, 0.7);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+.theme-button:hover {
+  background-color: rgba(85, 85, 85, 0.8);
+}

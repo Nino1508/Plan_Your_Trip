@@ -3,6 +3,7 @@ import { useState } from "react";
 import Menu from "./components/Menu/Menu.jsx";
 import DropdownList from "./components/DropdownList/DropdownList.jsx";
 import "./App.css";
+import RandomTheme from "./components/RandomTheme/RandomTheme.jsx";
 
 
 function App() {
@@ -43,8 +44,9 @@ function App() {
         isOpen={openCategory === "Presupuesto"}
         toggleCategory={toggleCategory}
       />
-      
+       <RandomTheme />
     </div>
+   
   );
 }
 
