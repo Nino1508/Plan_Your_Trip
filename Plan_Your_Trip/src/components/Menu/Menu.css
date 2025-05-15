@@ -132,3 +132,7 @@ button {
   transform: rotate(-45deg);
   top: 0;
 }
+
+li{
+  list-style-type:none;
+}
