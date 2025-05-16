@@ -10,6 +10,11 @@ const categorias = [
 ];
 
 function MultiDropdown() {
+  const [openCategory, setOpenCategory] = useState(null);
+  const toggleCategory = (category) => {
+    setOpenCategory((prev) => (prev === category ? null : category));
+  };
+
   return (
     <div className="multi-dropdown-container">
       {categorias.map((categoria) => (
