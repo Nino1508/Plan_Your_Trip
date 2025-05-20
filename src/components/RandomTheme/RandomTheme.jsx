@@ -2,24 +2,25 @@ import React, { useState, useEffect } from 'react';
 import './RandomTheme.css';
 
 const images = [
-'/imagenes/cappadocia.jpg',
-'/imagenes/matterhorn.jpg',
-'/imagenes/nihn.jpg',
-'/imagenes/pai.jpg',
-'/imagenes/paris.jpg',
-'/imagenes/playasiciliana.jpg',
-'/imagenes/santorini.jpg',
-'/imagenes/scotland.jpg',
-'/imagenes/tajmahal.jpg',
-'/imagenes/whiteheavenbeach.jpg'
+  '/imagenes/cappadocia.jpg',
+  '/imagenes/matterhorn.jpg',
+  '/imagenes/nihn.jpg',
+  '/imagenes/pai.jpg',
+  '/imagenes/paris.jpg',
+  '/imagenes/playasiciliana.jpg',
+  '/imagenes/santorini.jpg',
+  '/imagenes/scotland.jpg',
+  '/imagenes/tajmahal.jpg',
+  '/imagenes/whiteheavenbeach.jpg'
 ];
 
 const RandomTheme = () => {
-  const [bgImage, setBgImage] = useState('');
+  const [bgImage, setBgImage] = useState(images[0]);
 
   const handleImageChange = () => {
-    const randomIndex = Math.floor(Math.random() * images.length);
-    setBgImage(images[randomIndex]);
+    const validImages = images.filter(Boolean); 
+    const randomIndex = Math.floor(Math.random() * validImages.length);
+    setBgImage(validImages[randomIndex]);
   };
 
   useEffect(() => {
@@ -31,9 +32,7 @@ const RandomTheme = () => {
       document.body.className = 'background';
       document.body.style.backgroundImage = `url(${bgImage})`;
     }
-    return () => {
-      document.body.style.backgroundImage = '';
-    };
+
   }, [bgImage]);
 
   return (
